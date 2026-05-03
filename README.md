@@ -77,6 +77,7 @@ This reveals which models actually *depend* on temporal patterns vs. which rely 
 
 ## 📁 Repository Structure
 
+```
 CAN_RESEARCH/
 ├── CANData/                         # Root folder for all data and experiments
 │   ├── CAND/                        # Dataset — CAN data per vehicle and attack type
@@ -110,11 +111,11 @@ CAN_RESEARCH/
 │
 ├── LICENSE
 └── README.md
+```
 
 > 💡 Each experiment is provided in **two formats**:
 > - `.ipynb` — Jupyter notebook (originally run on Google Colab) with inline outputs and visualizations
 > - `.py` — equivalent Python script for command-line execution and easier code review
-
 ### How experiments are organized
 
 Each attack folder contains **5 experiments** (each available as both `.ipynb` and `.py`):
