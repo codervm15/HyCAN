@@ -109,7 +109,6 @@ CAN_RESEARCH/
 │   ├── Silverado/                   # Same structure as Forester
 │   └── Traverse/                    # Same structure as Forester
 │
-├── LICENSE
 └── README.md
 ```
 
