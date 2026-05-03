@@ -75,6 +75,81 @@ This reveals which models actually *depend* on temporal patterns vs. which rely 
 
 ---
 
+## 📁 Repository Structure
+
+CAN_RESEARCH/
+├── CANData/                         # Root folder for all data and experiments
+│   ├── CAND/                        # Dataset — CAN data per vehicle and attack type
+│   ├── Examples/                    # Sample code for reference experiments
+│   │
+│   ├── Forester/                    # Per-vehicle experiments
+│   │   ├── With_Timestamp/          # RS1 — includes timestamp feature
+│   │   │   ├── DOS/
+│   │   │   │   ├── Exp1-Bert-base_uncased.ipynb
+│   │   │   │   ├── Exp1-Bert-base_uncased.py
+│   │   │   │   ├── Exp2-Roberta_base_dos_binary.ipynb
+│   │   │   │   ├── Exp2-Roberta_base_dos_binary.py
+│   │   │   │   ├── Exp3-ML_Models_dos_binary.ipynb
+│   │   │   │   ├── Exp3-ML_Models_dos_binary.py
+│   │   │   │   ├── Exp4-MLP_Dos_binary.ipynb
+│   │   │   │   ├── Exp4-MLP_Dos_binary.py
+│   │   │   │   ├── Exp5-LSTM_Dos_binary.ipynb
+│   │   │   │   └── Exp5-LSTM_Dos_binary.py
+│   │   │   ├── Fuzzy/
+│   │   │   ├── Gear/
+│   │   │   ├── Speed/
+│   │   │   ├── Standstill/
+│   │   │   └── MultiClass.ipynb     # Multi-class classification across all attacks
+│   │   │
+│   │   └── Without_Timestamp/       # RS2 — excludes timestamp feature
+│   │       └── ... (same structure)
+│   │
+│   ├── Impala/                      # Same structure as Forester
+│   ├── Silverado/                   # Same structure as Forester
+│   └── Traverse/                    # Same structure as Forester
+│
+├── LICENSE
+└── README.md
+
+> 💡 Each experiment is provided in **two formats**:
+> - `.ipynb` — Jupyter notebook (originally run on Google Colab) with inline outputs and visualizations
+> - `.py` — equivalent Python script for command-line execution and easier code review
+
+### How experiments are organized
+
+Each attack folder contains **5 experiments** (each available as both `.ipynb` and `.py`):
+
+| Experiment | Models Covered |
+|---|---|
+| `Exp1-Bert-base_uncased` | BERT (fine-tuned for CAN classification) |
+| `Exp2-Roberta_base_*_binary` | RoBERTa (transformer baseline) |
+| `Exp3-ML_Models_*_binary` | Logistic Regression, KNN, Decision Tree, Random Forest, XGBoost, CatBoost, Stacked Ensemble |
+| `Exp4-MLP_*_binary` | Multi-Layer Perceptron |
+| `Exp5-LSTM_*_binary` | Long Short-Term Memory |
+
+Each `With_Timestamp/` and `Without_Timestamp/` folder also contains a `MultiClass.ipynb` (and `.py`) for multi-class classification across all five attack types.
+
+### Navigating the repo
+
+CANData/{Vehicle}/{With_Timestamp | Without_Timestamp}/{AttackType}/{Experiment}.{ipynb|py}
+
+### Run experiments
+
+You can run experiments in **two ways**:
+
+**Option 1: Jupyter / Colab (recommended for exploration)**
+```bash
+jupyter notebook CANData/Forester/With_Timestamp/DOS/Exp1-Bert-base_uncased.ipynb
+```
+
+**Option 2: As a Python script (recommended for reproduction or CI)**
+```bash
+python CANData/Forester/With_Timestamp/DOS/Exp1-Bert-base_uncased.py
+```
+
+> ⚠️ The notebooks were originally executed on **Google Colab** with GPU acceleration. For BERT and RoBERTa experiments, a GPU is strongly recommended. The `.py` versions can run anywhere with the dependencies installed.
+---
+
 ## 📈 Key Findings
 
 - **BERT** achieved **near-perfect accuracy (up to 99.9%)** in RS1 across most attacks — but at high computational cost
