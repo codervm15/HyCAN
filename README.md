@@ -16,7 +16,7 @@
 
 Modern vehicles rely on hundreds of Electronic Control Units (ECUs) communicating over the **CAN bus** — a protocol with no built-in encryption or authentication, leaving it exposed to spoofing, injection, DoS, and replay attacks.
 
-**HyCAN** is a unified, extensible framework that lets you train, tune, and benchmark **multiple ML, DL, and Transformer-based IDS models in one pipeline** — instead of evaluating them one at a time.
+**HyCAN** is a unified, extensible framework that lets you train, tune, and benchmark **multiple ML, DL, and Transformer-based IDS models in one pipeline**
 
 A key novelty: HyCAN **converts numerical CAN bus data into feature strings** so it can be processed by BERT, treating CAN traffic like a language modeling problem.
 
